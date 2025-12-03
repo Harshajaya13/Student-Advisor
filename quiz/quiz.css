@@ -1,48 +1,60 @@
-/* styles4.css */
+/* quiz.css */
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     background-color: #f4f4f9;
 }
 
+/* AI Bar */
 .ai-chat-bar {
-    background: #333;
+    background: #2c3e50;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     display: flex;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .ai-chat-bar input { 
     flex-grow: 1;
-     border-radius: 5px;
-      border: none;
-       padding: 8px; 
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    outline: none;
 }
 .ai-chat-bar button { 
-    margin-left: 10px; 
+    margin-left: 10px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
 }
 
+/* Layout */
 .main-container {
     display: flex;
+    height: calc(100vh - 60px); /* Adjust based on chat bar height */
 }
 
+/* Sidebar */
 .sidebar {
     width: 250px;
-    background: #444;
-    color: white;
-    padding: 15px;
-    transition: width 0.3s ease;
-    height: calc(100vh - 50px); /* Full height minus chat bar */
+    background: #34495e;
+    color: #ecf0f1;
+    padding: 20px 10px;
     overflow-y: auto;
+    transition: width 0.3s ease;
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
 }
 
 .sidebar.collapsed {
-    width: 60px;
+    width: 50px;
 }
-.sidebar.collapsed .language-header span:first-child,
-.sidebar.collapsed .levels-list {
+.sidebar.collapsed .language-header span, 
+.sidebar.collapsed .toggle-levels {
     display: none;
 }
 
@@ -53,144 +65,114 @@ body {
     font-size: 24px;
     cursor: pointer;
     margin-bottom: 20px;
+    display: block;
 }
 
-.language-item { 
-    margin-bottom: 15px; 
+.language-item {
+    margin-bottom: 5px;
 }
-.language-header { 
-    display: flex;
-     justify-content: space-between; 
-     cursor: pointer; 
-     font-size: 18px; padding: 5px; 
-}
-.toggle-levels { 
-    font-weight: bold;
- }
-.levels-list { 
-    list-style: none; 
-    padding-left: 15px;
-     max-height: 0; 
-    overflow: hidden; 
-    transition: max-height 0.3s ease;
+
+.language-header {
+    padding: 12px 15px;
     cursor: pointer;
- }
-.levels-list.open { 
-    max-height: 500px; /* Adjust as needed */ 
-}
-.levels-list li { 
-    padding: 5px 0; 
-}
-.checkmark { 
-    color: lightgreen; 
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    transition: background 0.2s;
 }
 
+.language-header:hover {
+    background-color: #2c3e50;
+}
+
+/* Content Area */
 .content-area {
     flex-grow: 1;
-    padding: 20px;
-    transition: margin-left 0.3s ease;
+    padding: 40px;
+    overflow-y: auto;
 }
-.content-area h1{
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+.content-area h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
 }
 
-/* Quiz Styles */
+/* Quiz UI */
 .quiz-container {
-     max-width: 800px; margin: auto; 
-    }
-.question-block { 
+    max-width: 700px;
+    margin: 0 auto;
     background: white;
-     border-radius: 8px;
-      padding: 20px; 
-      margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-}
-.option {
-     padding: 15px; 
-     border: 1px solid #ddd; 
-     border-radius: 5px; 
-     margin-bottom: 10px; 
-     cursor: pointer; 
-     display: flex;
-      align-items: center; 
-}
-.option:hover { 
-    background: #f0f0f0; 
-}
-.option input { 
-    margin-right: 15px; 
-}
-.explanation { 
-    margin-top: 15px; 
-    padding: 10px; 
-    background: #eef; 
-    border-left: 4px solid #4a4ac7; 
-}
-.next-button { 
-    display: block;
-     width: 100%; 
-     padding: 15px; 
-     font-size: 16px; 
-     background: #4a4ac7;
-      color: white; 
-      border: none;
-       border-radius: 5px; 
-       margin-top: 20px; 
-       cursor: pointer; 
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Add this to your existing styles4.css */
-
-.option {
-    display: block; /* Makes the whole area clickable */
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
 }
 
-.option:hover {
-    background-color: #f0f0f0;
-}
-
-.option input[type="radio"] {
-    margin-right: 10px;
-}
-
-/* Add these new rules to styles4.css */
-
-.option-btn.correct {
-    background-color: #90EE90; /* Light green */
-    border-color: #38a838;
-}
-
-.option-btn.incorrect {
-    background-color: #F08080; /* Light red */
-    border-color: #c53030;
-}
-
-.option-btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-/* Make sure your base button style is defined */
+/* Option Buttons */
 .option-btn {
     display: block;
     width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    font-size: 16px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    font-size: 1rem;
     text-align: left;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: white;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.2s;
+    color: #495057;
 }
 
 .option-btn:hover:not(:disabled) {
-    background-color: #f0f0f0;
+    background-color: #e2e6ea;
+    border-color: #adb5bd;
+}
+
+/* Correct/Incorrect States */
+.option-btn.correct {
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+    color: #155724;
+}
+
+.option-btn.incorrect {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+    color: #721c24;
+}
+
+.option-btn:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+/* Explanation & Next Button */
+.explanation {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e8f4fd;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+    color: #2c3e50;
+}
+
+#next-btn {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    float: right;
+}
+#next-btn:hover {
+    background-color: #2980b9;
 }
