@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Your Path</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* --- Variables for Identity --- */
+:root {
+    --bg-color: #050505;
+    --card-bg: #111111;
+    --text-main: #ffffff;
+    --text-muted: #888888;
+    
+    /* Neon Accents */
+    --front-color: #00f2ff; /* Cyan */
+    --back-color: #ff5500;  /* Orange */
+    --mob-color: #bd00ff;   /* Purple */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, sans-serif; /* Modern font stack */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.path-container {
+    max-width: 1200px;
+    padding: 4rem 2rem;
+    width: 100%;
+}
+
+/* --- Header --- */
+.main-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.main-header h1 {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-header p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+/* --- The Grid --- */
+.cards-grid {
+    display: grid;
+    /* Auto-fit: Creates 3 columns on desktop, 1 on mobile automatically */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* --- The Card --- */
+.path-card {
+    background: var(--card-bg);
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: Lift up */
+.path-card:hover {
+    transform: translateY(-10px);
+    border-color: #444;
+}
+
+/* --- Card Content --- */
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.path-card h2 {
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.path-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1; /* Pushes content down so buttons align */
+}
+
+/* --- Examples Box (The gray list) --- */
+.examples-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 2rem;
+    box-sizing: border-box; /* Fixes padding width issues */
+}
+
+.examples-box span {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.examples-box ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.examples-box li {
+    margin-bottom: 5px;
+}
+
+/* --- Buttons --- */
+.btn {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.3s;
+    background: #fff;
+    color: #000;
+    margin-top: auto;
+}
+
+.btn:hover {
+    filter: brightness(0.9);
+}
+
+/* --- SPECIFIC COLOR THEMES --- */
+
+/* Frontend (Cyan) */
+.frontend:hover { box-shadow: 0 0 30px rgba(0, 242, 255, 0.1); border-color: var(--front-color); }
+.frontend .card-icon { color: var(--front-color); text-shadow: 0 0 20px rgba(0, 242, 255, 0.4); }
+.frontend .subtitle { color: var(--front-color); }
+.frontend .btn { background: var(--front-color); border: 1px solid var(--front-color); }
+
+/* Backend (Orange) */
+.backend:hover { box-shadow: 0 0 30px rgba(255, 85, 0, 0.1); border-color: var(--back-color); }
+.backend .card-icon { color: var(--back-color); text-shadow: 0 0 20px rgba(255, 85, 0, 0.4); }
+.backend .subtitle { color: var(--back-color); }
+.backend .btn { background: var(--back-color); border: 1px solid var(--back-color); }
+
+/* Mobile (Purple) */
+.mobile:hover { box-shadow: 0 0 30px rgba(189, 0, 255, 0.1); border-color: var(--mob-color); }
+.mobile .card-icon { color: var(--mob-color); text-shadow: 0 0 20px rgba(189, 0, 255, 0.4); }
+.mobile .subtitle { color: var(--mob-color); }
+.mobile .btn { background: var(--mob-color); border: 1px solid var(--mob-color); color: #fff; }
+</style>
+<body>
+
+<div class="path-container">
+    
+    <header class="main-header">
+        <h1>Choose Your Domain</h1>
+        <p>Select the problem you want to solve.</p>
+    </header>
+
+    <div class="cards-grid">
+
+        <div class="path-card frontend">
+            <div class="card-icon">&lt;/&gt;</div>
+            <h2>Frontend</h2>
+            <div class="subtitle">The Visual Architect</div>
+            <p>You control pixels, animations, and user interactions. If they see it, you built it.</p>
+            
+            <div class="examples-box">
+                <span>Like building:</span>
+                <ul>
+                    <li>Apple's Website</li>
+                    <li>Netflix's UI</li>
+                    <li>Video Game HUDs</li>
+                </ul>
+            </div>
+            
+            <a href="frontend-path.html" class="btn">Start Frontend &rarr;</a>
+        </div>
+
+        <div class="path-card backend">
+            <div class="card-icon">{ }</div>
+            <h2>Backend</h2>
+            <div class="subtitle">The System Engineer</div>
+            <p>You control data, security, and speed. You build the invisible engine that powers the world.</p>
+            
+            <div class="examples-box">
+                <span>Like building:</span>
+                <ul>
+                    <li>Uber's Matching Algo</li>
+                    <li>Bank Transactions</li>
+                    <li>AI Data Processing</li>
+                </ul>
+            </div>
+            
+            <a href="backend-path.html" class="btn">Start Backend &rarr;</a>
+        </div>
+
+        <div class="path-card mobile">
+            <div class="card-icon">📱</div>
+            <h2>App Dev</h2>
+            <div class="subtitle">The Ecosystem Builder</div>
+            <p>You build native apps that live in people's pockets. You use the camera, GPS, and sensors.</p>
+            
+            <div class="examples-box">
+                <span>Like building:</span>
+                <ul>
+                    <li>Instagram Filters</li>
+                    <li>Google Maps</li>
+                    <li>Spotify Offline</li>
+                </ul>
+            </div>
+            
+            <a href="app-development.html" class="btn">Start Mobile &rarr;</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
