@@ -221,3 +221,8 @@ button {
 .choice-card:hover .arrow-icon {
     color: white;
 }
+
+.guide{
+    text-decoration: none;
+    color: inherit;
+}
