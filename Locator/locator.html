@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathFinder: Your Learning Librarian</title>
+    <link rel="stylesheet" href="locator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="search-focus-container">
+            <h1 class="header-title">Don't Search. <span class="highlight">Start.</span></h1>
+            <p class="header-subtitle">The "Librarian" that shows you exactly where to learn.</p>
+
+            <div class="main-prompt-area">
+                <input type="text" id="user-topic" placeholder="Type a topic (e.g., Python, Java)...">
+                <button id="search-button">Find Resources</button>
+            </div>
+        </div>
+
+        <div class="results-container" id="results-container" style="display:none;">
+            
+            <div id="senpai-note-area"></div>
+
+            <div class="filter-section">
+                <label for="platform-select">I want to learn via:</label>
+                <select id="platform-select">
+                    <option value="all">Show Everything</option>
+                    <option value="youtube">YouTube (Videos)</option>
+                    <option value="documentation">Documentation (Reading)</option>
+                    <option value="course">Paid Courses (Certificates)</option>
+                </select>
+            </div>
+
+            <div id="loading-spinner" class="spinner"></div>
+            <div id="resources-area" class="cards-grid"></div>
+
+            <div class="stories-section">
+                <h3 class="stories-title">Motivational Stories</h3>
+                <div id="stories-area" class="stories-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="locator.js"></script>
+</body>
+</html>
