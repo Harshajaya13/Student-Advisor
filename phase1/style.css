@@ -1,0 +1,106 @@
+:root {
+    --bg-color: #f4f7f6; /* Soft, neutral background */
+    --card-bg: #ffffff;
+    --primary-accent: #2563eb; /* Trustworthy Blue */
+    --text-main: #1f2937;
+    --text-sub: #6b7280;
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grand-central-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    padding: 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Header Styling */
+.intro-text {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.intro-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    color: var(--text-sub);
+}
+
+/* The Decision Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Card Styling */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-accent);
+}
+
+.card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--text-sub);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .intro-text h1 { font-size: 2rem; }
+    .grid-container { grid-template-columns: 1fr; }
+}

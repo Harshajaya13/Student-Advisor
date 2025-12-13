@@ -1,0 +1,170 @@
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --linkedin-blue: #0077b5;
+    --github-dark: #333;
+    --primary: #2563eb;
+    --text-main: #1f2937;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/* Header & Filters */
+.bridge-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    z-index: 1000;
+}
+
+.search-filters {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+input, select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* The Feed Grid */
+.feed-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    display: grid;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+/* --- THE PROJECT CARD (The Core) --- */
+.project-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Header: User Info & Badges */
+.card-header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info h4 { margin: 0; font-size: 1rem; }
+.user-info p { margin: 0; font-size: 0.85rem; color: #666; }
+.badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+/* Body: The Visual Hook */
+.card-visual {
+    width: 100%;
+    height: 250px;
+    background-color: #eee;
+    object-fit: cover;
+    display: block;
+}
+
+/* Stats Bar (The Hub Concept) */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8rem;
+    background: #f9fafb;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+/* Footer: Stack & Actions */
+.card-footer {
+    padding: 1rem;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-icon {
+    font-size: 1.2rem;
+    color: #555;
+    background: #f3f4f6;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: opacity 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--linkedin-blue); /* LinkedIn Color */
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--github-dark); /* GitHub Color */
+    color: white;
+}
+
+.btn:hover { opacity: 0.9; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .bridge-header { flex-direction: column; height: auto; padding: 1rem; }
+    .search-filters { flex-direction: column; width: 100%; }
+}

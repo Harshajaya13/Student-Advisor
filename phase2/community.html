@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Community Bridge | Showcase & Connect</title>
+    <link rel="stylesheet" href="community.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="bridge-header">
+        <div class="logo">🚀 TalentHub</div>
+        <div class="search-filters">
+            <input type="text" placeholder="Search by Skill (e.g., React, Poster Design)..." id="search-input">
+            <select id="college-filter">
+                <option value="all">All Colleges</option>
+                <option value="tier3">Tier-3 Hidden Gems</option>
+                <option value="iit">IIT/NIT</option>
+            </select>
+            <div class="toggle-container">
+                <label class="switch">
+                    <input type="checkbox" id="hiring-mode">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label">Hiring Mode (Event Scouting)</span>
+            </div>
+        </div>
+        <div class="user-profile-mini">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=You" alt="Your Avatar">
+            <span>Your Stats</span>
+        </div>
+    </header>
+
+    <main class="feed-container" id="project-feed">
+        </main>
+
+    <script src="community.js"></script>
+</body>
+</html>
